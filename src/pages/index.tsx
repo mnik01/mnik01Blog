@@ -18,7 +18,7 @@ export async function getStaticProps() {
   return {
     props: {
       notionPage: recordMap,
-      title: `- ${pageTitle}`,
+      title: `mnik01 | ${pageTitle}`,
     },
     revalidate: 60,
   }
@@ -38,7 +38,7 @@ const Home: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({ notion
     <>
       <Head>
         {/* <!-- HTML Meta Tags --> */}
-        <title>mnik01 {title}</title>
+        <title>{title}</title>
         <meta name="description" content="Personal blog & portfolio. Front-end and design | t.me/mnik01" />
 
         {/* <!-- Facebook Meta Tags --> */}
