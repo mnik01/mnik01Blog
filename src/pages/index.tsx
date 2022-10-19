@@ -2,25 +2,35 @@ import type { InferGetStaticPropsType, NextPage } from "next";
 import Head from "next/head";
 import { NotionAPI } from 'notion-client'
 import { NotionRenderer } from 'react-notion-x'
-
+import Image from 'next/image'
+import Link from 'next/link'
+import { FC } from "react";
+import { getPageTitle } from 'notion-utils'
 
 
 
 export async function getStaticProps() {
   const notion = new NotionAPI()
   
-  const notionPage = await notion.getPage('Typescript-React-1f986e9271144a92ad1257fd5b09176e')
+  const recordMap = await notion.getPage('Typescript-React-1f986e9271144a92ad1257fd5b09176e')
+  const pageTitle = getPageTitle(recordMap);
   
   return {
     props: {
-      notionPage,
+      notionPage: recordMap,
+      title: `- ${pageTitle}`,
     },
     revalidate: 60,
   }
 }
 
 
-const Home: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({ notionPage }) => {
+const Footer: FC = () => {
+  return <footer>footer</footer>
+}
+
+
+const Home: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({ notionPage, title }) => {
   
 
 
@@ -28,7 +38,7 @@ const Home: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({ notion
     <>
       <Head>
         {/* <!-- HTML Meta Tags --> */}
-        <title>mnik01 blog</title>
+        <title>mnik01 {title}</title>
         <meta name="description" content="Personal blog & portfolio. Front-end and design | t.me/mnik01" />
 
         {/* <!-- Facebook Meta Tags --> */}
@@ -48,7 +58,17 @@ const Home: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({ notion
 
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <NotionRenderer recordMap={notionPage} fullPage={true} darkMode={false} />
+      <NotionRenderer 
+        recordMap={notionPage}
+        fullPage={true}
+        defaultPageIcon={"💙"}
+        previewImages
+        footer={<Footer />}
+        components={{
+          nextImage: Image,
+          nextLink: Link
+        }}
+      />
     </>
   );
 };
