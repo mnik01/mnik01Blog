@@ -46,7 +46,7 @@ const Home: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({ notion
         <meta property="og:type" content="website" />
         <meta property="og:title" content="mnik01 blog" />
         <meta property="og:description" content="Personal blog & portfolio. Front-end and design | t.me/mnik01" />
-        <meta property="og:image" content="https://mnik01.vercel.app/api/og" />
+        <meta property="og:image" content={`https://mnik01.vercel.app/api/og?title=${title}`} />
 
         {/* <!-- Twitter Meta Tags --> */}
         <meta name="twitter:card" content="summary_large_image" />
@@ -54,7 +54,7 @@ const Home: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({ notion
         <meta property="twitter:url" content="https://mnik01.vercel.app/" />
         <meta name="twitter:title" content="mnik01 blog" />
         <meta name="twitter:description" content="Personal blog & portfolio. Front-end and design | t.me/mnik01" />
-        <meta name="twitter:image" content="https://mnik01.vercel.app/api/og" />
+        <meta name="twitter:image" content={`https://mnik01.vercel.app/api/og?title=${title}`} />
 
         <link rel="icon" href="/favicon.ico" />
       </Head>
