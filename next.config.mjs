@@ -18,7 +18,7 @@ export default defineNextConfig({
   swcMinify: true,
   // Next.js i18n docs: https://nextjs.org/docs/advanced-features/i18n-routing
   i18n: {
-    locales: ["en", "ru"],
-    defaultLocale: "en",
+    locales: ["en-US", "ru"],
+    defaultLocale: "ru",
   },
 });

@@ -5,23 +5,21 @@ import { NotionRenderer } from 'react-notion-x'
 import Image from 'next/image'
 import Link from 'next/link'
 import { FC } from "react";
-import { getPageTitle, getPageImageUrls } from 'notion-utils'
+import { getPageTitle } from 'notion-utils'
 import Twemoji from 'react-twemoji';
 
 
 
-export async function getStaticProps() {
+export const getStaticProps = async ({ locale }: {locale: string}) => {
   const notion = new NotionAPI()
-  
   const recordMap = await notion.getPage('Typescript-React-1f986e9271144a92ad1257fd5b09176e')
   const pageTitle = getPageTitle(recordMap);
-  const [coverImageUrl] = getPageImageUrls(recordMap, {mapImageUrl: () => ''});
-  console.log(coverImageUrl);
   
   return {
     props: {
       notionPage: recordMap,
-      title: `mnik01 | ${pageTitle}`,
+      title: pageTitle,
+      locale,
     },
     revalidate: 60,
   }
@@ -33,7 +31,51 @@ const Footer: FC = () => {
 }
 
 
-const Home: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({ notionPage, title }) => {
+const EnMeta: FC<{title: string}> = ({title}) => {
+  return (
+    <>
+      <meta name="description" content="Personal blog & portfolio. Front-end, design and other..." />
+      {/* <!-- Facebook Meta Tags --> */}
+      <meta property="og:url" content="https://mnik01.vercel.app/" />
+      <meta property="og:type" content="website" />
+      <meta property="og:title" content="mnik01 blog" />
+      <meta property="og:description" content="Personal blog & portfolio. Front-end, design and other..." />
+      <meta property="og:image" content={`https://mnik01.vercel.app/api/og?title=${title}`} />
+
+      {/* <!-- Twitter Meta Tags --> */}
+      <meta name="twitter:card" content="summary_large_image" />
+      <meta property="twitter:domain" content="mnik01.vercel.app" />
+      <meta property="twitter:url" content="https://mnik01.vercel.app/" />
+      <meta name="twitter:title" content="mnik01 blog" />
+      <meta name="twitter:description" content="Personal blog & portfolio. Front-end, design and other..." />
+      <meta name="twitter:image" content={`https://mnik01.vercel.app/api/og?title=${title}`} />
+    </>
+  )
+}
+const RuMeta: FC<{title: string}> = ({title}) => {
+  return (
+    <>
+      <meta name="description" content="Личный блок: статьи и мнения про айти, дизайн и прочее..." />
+      {/* <!-- Facebook Meta Tags --> */}
+      <meta property="og:url" content="https://mnik01.vercel.app/" />
+      <meta property="og:type" content="website" />
+      <meta property="og:title" content="mnik01 blog" />
+      <meta property="og:description" content="Личный блок: статьи и мнения про айти, дизайн и прочее..." />
+      <meta property="og:image" content={`https://mnik01.vercel.app/api/og?title=${title}`} />
+
+      {/* <!-- Twitter Meta Tags --> */}
+      <meta name="twitter:card" content="summary_large_image" />
+      <meta property="twitter:domain" content="mnik01.vercel.app" />
+      <meta property="twitter:url" content="https://mnik01.vercel.app/" />
+      <meta name="twitter:title" content="mnik01 blog" />
+      <meta name="twitter:description" content="Личный блок: статьи и мнения про айти, дизайн и прочее..." />
+      <meta name="twitter:image" content={`https://mnik01.vercel.app/api/og?title=${title}`} />
+    </>
+  )
+}
+
+
+const Home: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({ notionPage, title, locale }) => {
   
 
 
@@ -41,26 +83,11 @@ const Home: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({ notion
     <>
       <Head>
         {/* <!-- HTML Meta Tags --> */}
-        <title>{title}</title>
-        <meta name="description" content="Personal blog & portfolio. Front-end and design | t.me/mnik01" />
-
-        {/* <!-- Facebook Meta Tags --> */}
-        <meta property="og:url" content="https://mnik01.vercel.app/" />
-        <meta property="og:type" content="website" />
-        <meta property="og:title" content="mnik01 blog" />
-        <meta property="og:description" content="Personal blog & portfolio. Front-end and design | t.me/mnik01" />
-        <meta property="og:image" content={`https://mnik01.vercel.app/api/og?title=${title}`} />
-
-        {/* <!-- Twitter Meta Tags --> */}
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta property="twitter:domain" content="mnik01.vercel.app" />
-        <meta property="twitter:url" content="https://mnik01.vercel.app/" />
-        <meta name="twitter:title" content="mnik01 blog" />
-        <meta name="twitter:description" content="Personal blog & portfolio. Front-end and design | t.me/mnik01" />
-        <meta name="twitter:image" content={`https://mnik01.vercel.app/api/og?title=${title}`} />
-
+        <title>{title ? title : 'mnik01'}</title>
+        {locale === 'ru' ? <RuMeta title={title}/> : <EnMeta title={title}/>}
         <link rel="icon" href="/favicon.ico" />
       </Head>
+
       <Twemoji options={{ className: 'twemoji' }}>
         <NotionRenderer 
           recordMap={notionPage}
