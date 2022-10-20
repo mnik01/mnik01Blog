@@ -1,0 +1,7 @@
+{
+  "explorer.fileNesting.patterns": {
+    "*.tsx": "index.ts",
+    "tsconfig.json": "tsconfig.*.json",
+    "package.json": "*.cjs, *.js, *.json, *.rc, *.yaml, *rc, .gitignore, *.mjs, *.ts"
+  }
+}
