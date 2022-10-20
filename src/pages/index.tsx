@@ -5,7 +5,8 @@ import { NotionRenderer } from 'react-notion-x'
 import Image from 'next/image'
 import Link from 'next/link'
 import { FC } from "react";
-import { getPageTitle } from 'notion-utils'
+import { getPageTitle, getPageImageUrls } from 'notion-utils'
+import Twemoji from 'react-twemoji';
 
 
 
@@ -14,6 +15,8 @@ export async function getStaticProps() {
   
   const recordMap = await notion.getPage('Typescript-React-1f986e9271144a92ad1257fd5b09176e')
   const pageTitle = getPageTitle(recordMap);
+  const [coverImageUrl] = getPageImageUrls(recordMap, {mapImageUrl: () => ''});
+  console.log(coverImageUrl);
   
   return {
     props: {
@@ -58,17 +61,28 @@ const Home: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({ notion
 
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <NotionRenderer 
-        recordMap={notionPage}
-        fullPage={true}
-        defaultPageIcon={"💙"}
-        previewImages
-        footer={<Footer />}
-        components={{
-          nextImage: Image,
-          nextLink: Link
-        }}
-      />
+      <Twemoji options={{ className: 'twemoji' }}>
+        <NotionRenderer 
+          recordMap={notionPage}
+          fullPage={true}
+          pageCover={
+            <div className='notion-page-cover-wrapper'>
+              <div style={{
+                
+          backgroundColor: `rgb(67, 56, 202)`,
+          backgroundImage: `radial-gradient(at 58% 48%, rgb(243, 232, 255) 0, transparent 0%), radial-gradient(at 51% 12%, rgb(212, 212, 216) 0, transparent 36%), radial-gradient(at 51% 25%, rgb(250, 232, 255) 0, transparent 92%), radial-gradient(at 16% 71%, rgb(107, 114, 128) 0, transparent 62%), radial-gradient(at 100% 0%, rgb(154, 52, 18) 0, transparent 72%), radial-gradient(at 10% 98%, rgb(37, 99, 235) 0, transparent 5%)`,
+              }} className='notion-page-cover' />
+            </div>
+          }
+          defaultPageIcon={"💙"}
+          previewImages
+          footer={<Footer />}
+          components={{
+            nextImage: Image,
+            nextLink: Link,
+          }}
+        />
+      </Twemoji>
     </>
   );
 };
