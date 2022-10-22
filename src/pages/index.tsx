@@ -30,7 +30,20 @@ const Home: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({ notion
   return (
     <>
       <Seo title={title} />
-      <Twemoji options={{ className: 'twemoji' }}>
+      <Twemoji
+          options={{
+            className: "twemoji",
+            size: "svg",
+            ext: ".svg",
+            attributes: () => {
+              return {
+                rel: "preload",
+                loading: "lazy",
+                decoding: "sync",
+              }
+            },
+          }}
+        >
         <NotionRenderer
           recordMap={notionPage}
           fullPage={true}
