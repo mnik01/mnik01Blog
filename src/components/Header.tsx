@@ -7,37 +7,44 @@ export const Header: FC = () => {
   const router = useRouter()
   const isHomePage = router.pathname === '/'
   return (
-    <header className="flex px-3 h-[45px] items-center justify-between">
+    <header className="flex text-p text-sm font-inter px-3 h-[45px] items-center justify-between">
       <Link href="/">
-        <div className="flex cursor-pointer hover:scale-105 transition-transform gap-1.5">
+        <a className="flex cursor-pointer hover:scale-105 transition-transform gap-1.5">
           <Image alt="logo" width={20} height={20} src='/images/heart.svg' />
           <p className={isHomePage ? "" : "-translate-y-[2px]"}>{isHomePage ? 'Главная страница' : 'mnik01'}</p>
-        </div>
+        </a>
       </Link>
-      <nav>
-        <ul className="flex gap-6">
+      <nav className="flex items-center justify-center sm:block">
+        <ul className="hidden sm:flex gap-6">
           <li>
             <Link href="/posts">
-              <p className="hover:text-indigo-400 transition-colors cursor-pointer">
+              <a className="hover:text-indigo-400 transition-colors cursor-pointer">
                 Посты
-              </p>
+              </a>
             </Link>
           </li>
           <li>
             <Link href="#Contacts">
-              <p className="hover:text-indigo-400 transition-colors cursor-pointer">
+              <a className="hover:text-indigo-400 transition-colors cursor-aointer">
                 Контакты
-              </p>
+              </a>
             </Link>
           </li>
           <li>
             <Link href="#CV">
-              <p className="hover:text-indigo-400 transition-colors cursor-pointer">
+              <a className="hover:text-indigo-400 transition-colors cursor-pointer">
                 Резюме
-              </p>
+              </a>
             </Link>
           </li>
         </ul>
+        <button className="flex sm:hidden gap-6">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M3 18H21" stroke="#37352F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M3 12H21" stroke="#37352F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M3 6H21" stroke="#37352F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
       </nav>
     </header>
   )
