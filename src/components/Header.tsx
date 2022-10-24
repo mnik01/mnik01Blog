@@ -15,24 +15,24 @@ export const Header: FC = () => {
         </a>
       </Link>
       <nav className="flex items-center justify-center sm:block">
-        <ul className="hidden sm:flex gap-6">
+        <ul className="hidden sm:flex gap-2">
           <li>
             <Link href="/posts">
-              <a className="hover:text-indigo-400 transition-colors cursor-pointer">
+              <a className="hover:text-indigo-400 hover:bg-slate-100 rounded-md px-3 py-2 transition-colors cursor-pointer">
                 Посты
               </a>
             </Link>
           </li>
           <li>
             <Link href="#Contacts">
-              <a className="hover:text-indigo-400 transition-colors cursor-aointer">
+              <a className="hover:text-indigo-400 hover:bg-slate-100 rounded-md px-3 py-2 transition-colors cursor-aointer">
                 Контакты
               </a>
             </Link>
           </li>
           <li>
             <Link href="#CV">
-              <a className="hover:text-indigo-400 transition-colors cursor-pointer">
+              <a className="hover:text-indigo-400 hover:bg-slate-100 rounded-md px-3 py-2 transition-colors cursor-pointer">
                 Резюме
               </a>
             </Link>
