@@ -1,5 +1,6 @@
 import type { InferGetStaticPropsType, NextPage } from 'next'
 import Link from 'next/link'
+import { Header } from '../../components/Header'
 import { Seo } from '../../components/Seo'
 import { getNotionPages } from '../../utils'
 
@@ -13,8 +14,9 @@ const Posts: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({ pages
   return (
     <>
       <Seo title="Посты" />
-      <main>
-        <h1>Посты</h1>
+      <Header />
+      <main className='containered'>
+        <h1 className='text-4xl font-bold mb-4'>Публикации</h1>
         <ul>
           {pages.map(page => (<li key={page.id}>
             <Link href={`/posts/${page.id}`}>

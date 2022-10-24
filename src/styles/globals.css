@@ -6,3 +6,11 @@
 .twemoji {
   width: 100%;
 }
+
+.containered {
+  box-sizing: border-box;
+  padding-left: calc(min(16px, 8vw));
+  padding-right: calc(min(16px, 8vw));
+  margin: 0 auto;
+  max-width: 720px;
+}
