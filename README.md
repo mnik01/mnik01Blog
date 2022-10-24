@@ -3,4 +3,5 @@
 
 
 
-
+seo fix
+https://www.dandenney.com/posts/front-end-dev/fixing-x-robots-nofollow-with-vercel/

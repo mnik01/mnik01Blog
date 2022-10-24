@@ -26,6 +26,10 @@ const Home: NextPage = () => {
           <h2 className='text-3xl mb-2 mt-8 text-h2 font-bold'>Обо мне</h2>
           <p>Привет, меня зовут - Максим и я Front-End разработчик Мне сейчас 20 лет. Я занимаюсь программированием и веб-дизайном.</p>
         </section>
+        <section>
+          <h2 className='text-3xl mb-2 mt-8 text-h2 font-bold'>Об этом сайте</h2>
+          <p>+/- 100% в Google Lighthouse</p>
+        </section>
       </main>
     </>
   )
