@@ -1,5 +1,4 @@
 import type { FC } from "react"
-import Image from "next/image"
 import Link from "next/link"
 import { useRouter } from "next/router"
 
@@ -26,14 +25,14 @@ export const Header: FC = () => {
             </Link>
           </li>
           <li>
-            <Link href="#Contacts">
+            <Link href="#contacts">
               <div className="hover:text-indigo-400 hover:bg-slate-100 rounded-md px-3 py-2 transition-colors cursor-aointer">
                 Контакты
               </div>
             </Link>
           </li>
           <li>
-            <Link href="#CV">
+            <Link href="#cv">
               <div className="hover:text-indigo-400 hover:bg-slate-100 rounded-md px-3 py-2 transition-colors cursor-pointer">
                 Резюме
               </div>
