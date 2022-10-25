@@ -16,6 +16,7 @@
     "plugin:react/recommended",
     "plugin:react/jsx-runtime",
     "next/core-web-vitals",
+    "eslint-config-next",
     "plugin:@typescript-eslint/recommended",
     "plugin:react-hooks/recommended"
   ]

@@ -20,7 +20,7 @@ const Posts: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({ pages
         <ul>
           {pages.map(page => (<li key={page.id}>
             <Link href={`/posts/${page.id}`}>
-              <a className='text-blue-200 cursor-pointer underline'>{page.properties.title.title[0].plain_text}</a>
+              <p className='text-blue-200 cursor-pointer underline'>{page.properties.title.title[0].plain_text}</p>
             </Link>
           </li>))}
         </ul>
