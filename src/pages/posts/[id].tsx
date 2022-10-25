@@ -1,7 +1,7 @@
 import type { InferGetStaticPropsType, NextPage } from 'next'
 import { useTheme } from 'next-themes'
 import { NotionRenderer } from 'react-notion-x'
-import Image from "next/legacy/image";
+import Image from "next/legacy/image"
 import Link from 'next/link'
 import { getPageTitle } from 'notion-utils'
 import Twemoji from 'react-twemoji'
