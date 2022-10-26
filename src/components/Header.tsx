@@ -48,13 +48,20 @@ export const Header: FC = () => {
             </Link>
           </li>
         </ul>
-        <button aria-label="expand menu button" name="menu" className="flex sm:hidden gap-6">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M3 18H21" stroke="#37352F" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-            <path d="M3 12H21" stroke="#37352F" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-            <path d="M3 6H21" stroke="#37352F" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-          </svg>
-        </button>
+        <div className="sm:hidden flex items-center gap-2">
+          <ThemeSwitcher
+            lightModeClasses="hover:text-indigo-400 hover:bg-slate-100 focus:text-indigo-400 focus:bg-slate-100"
+            darkModeClasses="text-light hover:bg-stone-500  focus:bg-stone-500"
+            extendClass="w-8 p-1.5 h-8 text-p"
+          />
+          <button aria-label="expand menu button" name="menu" className="flex text-p dark:text-light gap-6">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M3 18H21" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round" strokeLinejoin="round"/>
+              <path d="M3 12H21" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round" strokeLinejoin="round"/>
+              <path d="M3 6H21" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round" strokeLinejoin="round"/>
+            </svg>
+          </button>
+        </div>
       </nav>
     </header>
   )
