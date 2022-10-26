@@ -8,7 +8,7 @@ const Home: NextPage = () => {
     <>
       <Seo />
       <Header />
-      <div className='w-full h-64 bg-center bg-cover bg-[url(/images/pageCover.webp)]' />
+      <div className='mt-[45px] w-full h-64 bg-center bg-cover bg-[url(/images/pageCover.webp)]' />
       <main className='containered'>
         <h1 className='pt-16 text-6xl text-center sm:text-left text-h1 dark:text-light font-inter font-bold'>Максим Никонов</h1>
         <article className='mt-12 items-center flex gap-3 p-4 rounded-sm dark:bg-[#3F4447] bg-[#F7F7F7]'>

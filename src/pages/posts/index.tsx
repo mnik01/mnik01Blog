@@ -15,7 +15,7 @@ const Posts: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({ pages
     <>
       <Seo title="Посты" />
       <Header />
-      <main className='containered'>
+      <main className='containered mt-[45px]'>
         <h1 className='text-4xl font-bold mb-4'>Публикации</h1>
         <ul>
           {pages.map(page => (<li key={page.id}>
