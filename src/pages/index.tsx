@@ -10,8 +10,8 @@ const Home: NextPage = () => {
       <Header />
       <div className='w-full h-64 bg-center bg-cover bg-[url(/images/pageCover.webp)]' />
       <main className='containered'>
-        <h1 className='pt-16 text-6xl text-center sm:text-left text-h1 font-inter font-bold'>Максим Никонов</h1>
-        <article className='mt-12 items-center flex gap-3 p-4 rounded-sm bg-[#F7F7F7]'>
+        <h1 className='pt-16 text-6xl text-center sm:text-left text-h1 dark:text-light font-inter font-bold'>Максим Никонов</h1>
+        <article className='mt-12 items-center flex gap-3 p-4 rounded-sm dark:bg-[#3F4447] bg-[#F7F7F7]'>
           <div className="w-5 h-5">
             <svg className='w-5 h-5' width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M16.1111 6.14444C16.1111 9.72166 13.3334 10.2772 13.3334 13.6111C13.3334 15.3322 11.5984 15.4772 10.2778 15.4772C9.13725 15.4772 6.61892 15.0444 6.61892 13.61C6.61892 10.2778 3.88892 9.72222 3.88892 6.14444C3.88892 2.79389 6.82503 0.077774 10.0461 0.077774C13.2684 0.077774 16.1111 2.79389 16.1111 6.14444Z" fill="#FFD983"/>
@@ -24,23 +24,23 @@ const Home: NextPage = () => {
           <p>Это сайт-портфолио, блог и резюме. Ниже указаны все разделы сайта</p>
         </article>
         <section>
-          <h2 className='text-3xl mb-2 mt-8 text-h2 font-bold'>Обо мне</h2>
+          <h2 className='text-3xl mb-2 mt-8 text-h2 dark:text-light font-bold'>Обо мне</h2>
           <p>Привет, меня зовут - Максим и я Front-End разработчик. Мне сейчас 20 лет. Я занимаюсь программированием и веб-дизайном.</p>
         </section>
         <section>
-          <h2 className='text-3xl mb-2 mt-8 text-h2 font-bold'>Об этом сайте</h2>
+          <h2 className='text-3xl mb-2 mt-8 text-h2 dark:text-light font-bold'>Об этом сайте</h2>
           <p>todo</p>
         </section>
         <section>
-          <h2 className='text-3xl mb-2 mt-8 text-h2 font-bold'>Опыт работы</h2>
+          <h2 className='text-3xl mb-2 mt-8 text-h2 dark:text-light font-bold'>Опыт работы</h2>
           <p>todo</p>
         </section>
         <section id="cv">
-          <h2 className='text-3xl mb-2 mt-8 text-h2 font-bold'>Резюме</h2>
+          <h2 className='text-3xl mb-2 mt-8 text-h2 dark:text-light font-bold'>Резюме</h2>
           <p>todo</p>
         </section>
         <section>
-          <h2 className='text-3xl mb-4 mt-8 text-h2 font-bold'>Публикации</h2>
+          <h2 className='text-3xl mb-4 mt-8 text-h2 dark:text-light font-bold'>Публикации</h2>
           <div className='w-full flex gap-2'>
             <article className='shadow-md rounded-[10px] transition-colors p-4 bg-[#68c7ed] hover:bg-[#79cdef] w-full h-fit'>
               <Link className='flex justify-between flex-col w-full h-full' href="/posts/57d54c52-3ce1-4d92-9401-759e283d7572">
@@ -53,11 +53,11 @@ const Home: NextPage = () => {
             </article>
           </div>
           <Link href='/posts'>
-            <p className='text-sm text-gray-500 mt-2'>Смотреть все публикации...</p>
+            <p className='text-sm text-gray-500 dark:text-light/70 mt-2'>Смотреть все публикации...</p>
           </Link>
         </section>
         <section id="contacts">
-          <h2 className='text-3xl mb-4 mt-8 text-h2 font-bold'>Контакты</h2>
+          <h2 className='text-3xl mb-4 mt-8 text-h2 dark:text-light font-bold'>Контакты</h2>
           <ul className='ml-2 sm:flex sm:gap-2 space-y-2 sm:space-y-0'>
             <li className="bg-blue-200 text-indigo-800 w-fit hover:scale-105 focus:scale-105 transition px-2 py-1 rounded-md">
               <a className='flex gap-2 items-center justify-center' href="https://t.me/mnik01">
@@ -88,7 +88,7 @@ const Home: NextPage = () => {
           </ul>
         </section>
         <section>
-          <h2 className='text-3xl mb-4 mt-8 text-h2 font-bold'>Todo</h2>
+          <h2 className='text-3xl mb-4 mt-8 text-h2 dark:text-light font-bold'>Todo</h2>
           <ul className='list-disc ml-8 pb-8'>
             <li>Экспорт главной страницы сайта как .pdf и подготовка страницы для печати</li>
             <li>Добавить анимации 3D объектов с помощью react-three-fiber</li>

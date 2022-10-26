@@ -13,6 +13,8 @@ module.exports = {
         h1: "#37352F",
         h2: "#3F4447",
         p: "#37352F",
+        dark: "#2F3437",
+        light: "#EBEBEB",
       },
     },
   },

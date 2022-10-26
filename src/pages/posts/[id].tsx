@@ -9,6 +9,7 @@ import Twemoji from 'react-twemoji'
 import { getNotionPageById, getNotionPages } from '../../utils'
 import { Seo } from '../../components/Seo'
 import { Footer } from '../../components/Footer'
+import { ThemeSwitcher } from '../../components/ThemeSwitcher'
 
 export const getStaticPaths = async () => {
   const pages = await getNotionPages()
@@ -76,6 +77,11 @@ const Post: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({ notion
           }
           defaultPageIcon={'💙'}
           previewImages
+          header={<ThemeSwitcher
+            darkModeClasses="text-light hover:bg-stone-500  focus:bg-stone-500"
+            lightModeClasses="hover:bg-stone-100 hover:text-blue-600 focus:text-blue-600 focus:bg-slate-100 text-p"
+            extendClass={`fixed top-[9px] right-3 w-8 h-8`}
+          />}
           footer={<Footer />}
           components={{
             nextImage: Image,

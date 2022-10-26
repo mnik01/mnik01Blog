@@ -1,12 +1,14 @@
 import type { FC } from "react"
 import Link from "next/link"
 import { useRouter } from "next/router"
+import { ThemeSwitcher } from "./ThemeSwitcher"
 
 export const Header: FC = () => {
   const router = useRouter()
   const isHomePage = router.pathname === '/'
+
   return (
-    <header className="flex text-p text-sm font-inter px-3 h-[45px] items-center justify-between">
+    <header className="flex text-p dark:bg-dark dark:text-light text-sm font-inter px-3 h-[45px] items-center justify-between">
       <Link href="/">
         <div className="flex cursor-pointer hover:scale-105 transition-transform gap-1.5">
           <svg width="20" height="18" viewBox="0 0 20 18" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -17,23 +19,30 @@ export const Header: FC = () => {
       </Link>
       <nav className="flex items-center justify-center sm:block">
         <ul className="hidden sm:flex gap-2">
+          <li className="flex items-center">
+            <ThemeSwitcher
+              lightModeClasses="hover:text-indigo-400 hover:bg-slate-100 focus:text-indigo-400 focus:bg-slate-100"
+              darkModeClasses="text-light hover:bg-stone-500  focus:bg-stone-500"
+              extendClass="w-8 p-1.5 h-8 text-p"
+            />
+          </li>
           <li>
             <Link href="/posts">
-              <div className="hover:text-indigo-400 hover:bg-slate-100 rounded-md px-3 py-2 transition-colors cursor-pointer">
+              <div className="hover:text-indigo-400 dark:hover:bg-stone-500 dark:text-light hover:bg-slate-100 rounded-md px-3 py-2 transition-colors cursor-pointer">
                 Посты
               </div>
             </Link>
           </li>
           <li>
             <Link href="#contacts">
-              <div className="hover:text-indigo-400 hover:bg-slate-100 rounded-md px-3 py-2 transition-colors cursor-aointer">
+              <div className="hover:text-indigo-400 dark:hover:bg-stone-500 dark:text-light hover:bg-slate-100 rounded-md px-3 py-2 transition-colors cursor-aointer">
                 Контакты
               </div>
             </Link>
           </li>
           <li>
             <Link href="#cv">
-              <div className="hover:text-indigo-400 hover:bg-slate-100 rounded-md px-3 py-2 transition-colors cursor-pointer">
+              <div className="hover:text-indigo-400 dark:hover:bg-stone-500 dark:text-light hover:bg-slate-100 rounded-md px-3 py-2 transition-colors cursor-pointer">
                 Резюме
               </div>
             </Link>
