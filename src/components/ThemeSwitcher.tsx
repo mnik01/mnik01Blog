@@ -13,6 +13,7 @@ export const ThemeSwitcher: FC<ThemeSwitcherProps> = ({ extendClass, lightModeCl
   const { theme: globalTheme, setTheme: setGlobalTheme } = useTheme()
   const [theme, setTheme] = useState<null | 'light' | 'dark'>(null)
   const isLightMode = theme === 'light'
+
   useEffect(() => {
     setTheme(globalTheme as any)
   }, [globalTheme])
