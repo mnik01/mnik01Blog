@@ -42,7 +42,7 @@ const Home: NextPage = () => {
         <section>
           <h2 className='text-3xl mb-4 mt-8 text-h2 font-bold'>Публикации</h2>
           <div className='w-full flex gap-2'>
-            <article className=' shadow-md rounded-[10px] transition-colors p-4 bg-[#4cbae6] hover:bg-[#68c7ed] w-full h-fit'>
+            <article className='shadow-md rounded-[10px] transition-colors p-4 bg-[#68c7ed] hover:bg-[#79cdef] w-full h-fit'>
               <Link className='flex justify-between flex-col w-full h-full' href="/posts/57d54c52-3ce1-4d92-9401-759e283d7572">
                 <div>
                   <p className='text-white text-xs font-bold'>Статья</p>
