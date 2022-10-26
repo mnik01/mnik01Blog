@@ -23,7 +23,7 @@ export const ErrorPage: FC<ErrorPageProps> = ({ statusCode }) => {
         </svg>
         <h1 className='z-50 text-white font-bold text-8xl'>{statusCode === '400' ? '404' : '505'}</h1>
         <h2 className='z-50 text-white text-xl font-medium'>{statusCode === '400' ? 'К сожалению страница не найдена' : 'К сожалению произошла ошибка'}</h2>
-        <Link href='/'>
+        <Link className='z-50 text-white text-xl font-medium' href='/'>
           <p className='z-50 text-white text-xl font-medium'>Лучше вернуться на <b className='text-blue-200 underline'>главную</b>...</p>
         </Link>
       </main>
