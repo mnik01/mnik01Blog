@@ -6,7 +6,7 @@ import Link from 'next/link'
 import { getPageTitle } from 'notion-utils'
 import Twemoji from 'react-twemoji'
 
-import { getNotionPageById, getNotionPages } from '../../utils'
+import { checkHasCoverImage, getNotionPageById, getNotionPages } from '../../utils'
 import { Seo } from '../../components/Seo'
 import { Footer } from '../../components/Footer'
 import { ThemeSwitcher } from '../../components/ThemeSwitcher'
@@ -23,16 +23,19 @@ export const getStaticPaths = async () => {
   }
 }
 
-interface GetStaticPropsContextType { locale: string; params: { id: string } }
+interface GetStaticPropsContextType { params: { id: string } }
 
-export const getStaticProps = async ({ locale, params }: GetStaticPropsContextType) => {
+export const getStaticProps = async ({ params }: GetStaticPropsContextType) => {
   try {
-    const notionPage = await getNotionPageById(params.id)
+    const notionPageRecordMap = await getNotionPageById(params.id)
+    const pages = await getNotionPages()
+    const relatedPage = pages.find(page => page.id === params.id)!
+
     return {
       props: {
-        notionPage,
-        title: getPageTitle(notionPage),
-        locale,
+        hasCover: checkHasCoverImage(relatedPage),
+        notionPage: notionPageRecordMap,
+        title: getPageTitle(notionPageRecordMap),
       },
       revalidate: 10,
     }
@@ -42,7 +45,7 @@ export const getStaticProps = async ({ locale, params }: GetStaticPropsContextTy
   }
 }
 
-const Post: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({ notionPage, title }) => {
+const Post: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({ notionPage, title, hasCover }) => {
   const { theme } = useTheme()
 
   return (
@@ -66,13 +69,13 @@ const Post: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({ notion
           recordMap={notionPage}
           fullPage={true}
           darkMode={theme === 'dark'}
-          pageCover={
-            <div className='notion-page-cover-wrapper'>
-              <div style={{
-
-                backgroundColor: 'rgb(67, 56, 202)',
-                backgroundImage: 'radial-gradient(at 58% 48%, rgb(243, 232, 255) 0, transparent 0%), radial-gradient(at 51% 12%, rgb(212, 212, 216) 0, transparent 36%), radial-gradient(at 51% 25%, rgb(250, 232, 255) 0, transparent 92%), radial-gradient(at 16% 71%, rgb(107, 114, 128) 0, transparent 62%), radial-gradient(at 100% 0%, rgb(154, 52, 18) 0, transparent 72%), radial-gradient(at 10% 98%, rgb(37, 99, 235) 0, transparent 5%)',
-              }} className='notion-page-cover' />
+          pageCover={hasCover
+            ? undefined
+            : <div className='notion-page-cover-wrapper'>
+                <div style={{
+                  backgroundColor: 'rgb(67, 56, 202)',
+                  backgroundImage: 'radial-gradient(at 58% 48%, rgb(243, 232, 255) 0, transparent 0%), radial-gradient(at 51% 12%, rgb(212, 212, 216) 0, transparent 36%), radial-gradient(at 51% 25%, rgb(250, 232, 255) 0, transparent 92%), radial-gradient(at 16% 71%, rgb(107, 114, 128) 0, transparent 62%), radial-gradient(at 100% 0%, rgb(154, 52, 18) 0, transparent 72%), radial-gradient(at 10% 98%, rgb(37, 99, 235) 0, transparent 5%)',
+                }} className='notion-page-cover' />
             </div>
           }
           defaultPageIcon={'💙'}

@@ -27,11 +27,11 @@ const Posts: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({ pages
                 <p className='text-xs text-stone-100 pt-6'>4 дня назад</p>
               </Link>
             </article>
-          {/* {pages.map(page => (<li key={page.id}>
+          {pages.map(page => (<li key={page.id}>
             <Link href={`/posts/${page.id}`}>
               <p className='text-blue-400 cursor-pointer underline'>{page.properties.title.title[0].plain_text}</p>
             </Link>
-          </li>))} */}
+          </li>))}
         </ul>
       </main>
     </>
