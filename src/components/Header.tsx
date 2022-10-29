@@ -85,14 +85,14 @@ export const Header: FC = () => {
             </Link>
           </li>
           <li className="w-full">
-            <Link onClick={mobileLinkHandler} className="w-full" href="#contacts">
+            <Link onClick={mobileLinkHandler} className="w-full" href="/#contacts">
               <div className="hover:text-indigo-400 w-full dark:hover:bg-stone-500 dark:text-light hover:bg-slate-100 rounded-md px-3 py-2 transition-colors cursor-aointer">
                 Контакты
               </div>
             </Link>
           </li>
           <li className="w-full">
-            <Link onClick={mobileLinkHandler} className="w-full" href="#cv">
+            <Link onClick={mobileLinkHandler} className="w-full" href="/#cv">
               <div className="hover:text-indigo-400 w-full dark:hover:bg-stone-500 dark:text-light hover:bg-slate-100 rounded-md px-3 py-2 transition-colors cursor-pointer">
                 Резюме
               </div>
