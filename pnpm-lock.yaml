@@ -3,6 +3,7 @@ lockfileVersion: 5.4
 specifiers:
   '@antfu/eslint-config': ^0.27.0
   '@notionhq/client': ^2.2.1
+  '@tailwindcss/line-clamp': ^0.4.2
   '@types/node': 18.0.0
   '@types/react': 18.0.14
   '@types/react-dom': 18.0.5
@@ -11,6 +12,7 @@ specifiers:
   '@typescript-eslint/parser': ^5.33.0
   '@vercel/og': ^0.0.19
   autoprefixer: ^10.4.7
+  date-fns: ^2.29.3
   eslint: 8.22.0
   eslint-config-next: 13.0.0
   eslint-plugin-react: ^7.31.10
@@ -38,11 +40,11 @@ dependencies:
   react-dom: 18.2.0_react@18.2.0
   react-notion-x: 6.15.6_y46qkat3hdx7k7haay7kqv5bvi
   react-twemoji: 0.5.0_react@18.2.0
-  zod: 3.19.1
 
 devDependencies:
   '@antfu/eslint-config': 0.27.0_yv3nvntfnealqm77uomj2fi4ki
   '@notionhq/client': 2.2.1
+  '@tailwindcss/line-clamp': 0.4.2_tailwindcss@3.1.8
   '@types/node': 18.0.0
   '@types/react': 18.0.14
   '@types/react-dom': 18.0.5
@@ -51,6 +53,7 @@ devDependencies:
   '@typescript-eslint/parser': 5.40.1_yv3nvntfnealqm77uomj2fi4ki
   '@vercel/og': 0.0.19
   autoprefixer: 10.4.12_postcss@8.4.18
+  date-fns: 2.29.3
   eslint: 8.22.0
   eslint-config-next: 13.0.0_yv3nvntfnealqm77uomj2fi4ki
   eslint-plugin-react: 7.31.10_eslint@8.22.0
@@ -63,6 +66,7 @@ devDependencies:
   prettier-plugin-tailwindcss: 0.1.13_prettier@2.7.1
   tailwindcss: 3.1.8_postcss@8.4.18
   typescript: 4.8.4
+  zod: 3.19.1
 
 packages:
 
@@ -466,6 +470,14 @@ packages:
     engines: {node: '>=10'}
     dependencies:
       defer-to-connect: 2.0.1
+    dev: true
+
+  /@tailwindcss/line-clamp/0.4.2_tailwindcss@3.1.8:
+    resolution: {integrity: sha512-HFzAQuqYCjyy/SX9sLGB1lroPzmcnWv1FHkIpmypte10hptf4oPUfucryMKovZh2u0uiS9U5Ty3GghWfEJGwVw==}
+    peerDependencies:
+      tailwindcss: '>=2.0.0 || >=3.0.0 || >=3.0.0-alpha.1'
+    dependencies:
+      tailwindcss: 3.1.8_postcss@8.4.18
     dev: true
 
   /@types/cacheable-request/6.0.2:
@@ -1297,6 +1309,11 @@ packages:
 
   /damerau-levenshtein/1.0.8:
     resolution: {integrity: sha512-sdQSFB7+llfUcQHUQO3+B8ERRj0Oa4w9POWMI/puGtuf7gFywGmkaLCElnudfTiKZV+NvHqL0ifzdrI8Ro7ESA==}
+    dev: true
+
+  /date-fns/2.29.3:
+    resolution: {integrity: sha512-dDCnyH2WnnKusqvZZ6+jA1O51Ibt8ZMRNkDZdyAyK4YfbDwa/cEmuztzG5pk6hqlp9aSBPYcjOlktquahGwGeA==}
+    engines: {node: '>=0.11'}
     dev: true
 
   /debug/2.6.9:
@@ -4334,4 +4351,4 @@ packages:
 
   /zod/3.19.1:
     resolution: {integrity: sha512-LYjZsEDhCdYET9ikFu6dVPGp2YH9DegXjdJToSzD9rO6fy4qiRYFoyEYwps88OseJlPyl2NOe2iJuhEhL7IpEA==}
-    dev: false
+    dev: true

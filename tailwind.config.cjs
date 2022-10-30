@@ -5,6 +5,7 @@ module.exports = {
   mode: 'jit',
   theme: {
     fontFamily: {
+      roboto: ['Roboto', 'sans-serif'],
       inter: ['Inter', 'sans-serif'],
       sans: ["ui-sans-serif", "system-ui", "apple-system", "BlinkMacSystemFont", "Segoe UI", "Helvetica", "Apple Color Emoji", "Arial", "sans-serif", "Segoe UI Emoji", "Segoe UI Symbol"],
     },
@@ -18,4 +19,7 @@ module.exports = {
       },
     },
   },
+  plugins: [
+    require('@tailwindcss/line-clamp'),
+  ],
 }

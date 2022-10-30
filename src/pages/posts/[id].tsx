@@ -6,7 +6,7 @@ import Link from 'next/link'
 import { getPageTitle } from 'notion-utils'
 import Twemoji from 'react-twemoji'
 
-import { checkHasCoverImage, getNotionPageById, getNotionPages } from '../../utils'
+import { appendixParser, checkHasCoverImage, clearFromAppendix, getNotionPageById, getNotionPages } from '../../utils'
 import { Seo } from '../../components/Seo'
 import { Footer } from '../../components/Footer'
 import { ThemeSwitcher } from '../../components/ThemeSwitcher'
@@ -27,13 +27,18 @@ interface GetStaticPropsContextType { params: { id: string } }
 
 export const getStaticProps = async ({ params }: GetStaticPropsContextType) => {
   try {
-    const notionPageRecordMap = await getNotionPageById(params.id)
+    let notionPageRecordMap = await getNotionPageById(params.id)
+    const appendix = appendixParser(notionPageRecordMap)
+    if (appendix.hasAppendix)
+      notionPageRecordMap = clearFromAppendix(JSON.stringify(notionPageRecordMap))
+
     const pages = await getNotionPages()
     const relatedPage = pages.find(page => page.id === params.id)!
 
     return {
       props: {
         hasCover: checkHasCoverImage(relatedPage),
+        appendix,
         notionPage: notionPageRecordMap,
         title: getPageTitle(notionPageRecordMap),
       },
@@ -46,26 +51,29 @@ export const getStaticProps = async ({ params }: GetStaticPropsContextType) => {
   }
 }
 
-const Post: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({ notionPage, title, hasCover }) => {
+const Post: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({ notionPage, title, hasCover, appendix }) => {
   const { theme } = useTheme()
 
   return (
     <>
-      <Seo title={title} />
+      <Seo
+        coverImgPath={appendix.ogImage && appendix.prefix ? `https://mnik01.vercel.app/images/${appendix.prefix}/${appendix.ogImage}` : undefined}
+        title={title}
+      />
       <Twemoji
-          options={{
-            className: "twemoji",
-            size: "svg",
-            ext: ".svg",
-            attributes: () => {
-              return {
-                rel: "preload",
-                loading: "lazy",
-                decoding: "sync",
-              }
-            },
-          }}
-        >
+        options={{
+          className: "twemoji",
+          size: "svg",
+          ext: ".svg",
+          attributes: () => {
+            return {
+              rel: "preload",
+              loading: "lazy",
+              decoding: "sync",
+            }
+          },
+        }}
+      >
         <NotionRenderer
           recordMap={notionPage}
           fullPage={true}

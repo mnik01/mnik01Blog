@@ -6,3 +6,8 @@ export const getNotionPageById = async (id: string) => {
 
   return recordMap
 }
+
+export const getNotionPageByIdWithId = async (id: string) => ({
+  id,
+  recordMap: await getNotionPageById(id),
+})

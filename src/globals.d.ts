@@ -1,11 +1,21 @@
+import type { ExtendedRecordMap } from 'notion-types/build/maps'
 export {};
 
 declare global {
+  interface Appendix {
+    hasAppendix: boolean
+    prefix?: string
+    ogImage?: string 
+    postImage?: string 
+  }
   interface PageInternal {
     category: 'article' | 'new' | 'opinion' | 'review' | 'other',
     title: string
     coverImage: string | null
     createdAt: string
+    appendix?: Appendix
+    emoji?: string
+    previewText: string | null
     id: string
   }
   interface PageOfficialAPI {
@@ -21,5 +31,6 @@ declare global {
     archived: false
     properties: { title: any }
     url: string
-  }    
+  }
+  type PageRecordMap = ExtendedRecordMap
 } 

@@ -21,7 +21,9 @@ export const Seo: FC<SeoProps> = ({
       <meta property="og:type" content="website" />
       <meta property="og:title" content={title === defaultTitle ? defaultTitle : title} />
       <meta property="og:description" content={locale === 'ru' ? 'Личный блок: статьи и мнения про айти, дизайн и прочее...' : "Personal blog & portfolio. Front-end, design and other..."} />
-      {coverImgPath || <meta property="og:image" content={title === defaultTitle ? `https://mnik01.vercel.app/api/og` : `https://mnik01.vercel.app/api/og?title=${title}`} />
+      {coverImgPath
+        ? <meta property="og:image" content={coverImgPath} />
+        : <meta property="og:image" content={title === defaultTitle ? `https://mnik01.vercel.app/api/og` : `https://mnik01.vercel.app/api/og?title=${title}`} />
       }
       {/* <!-- Twitter Meta Tags --> */}
       <meta name="twitter:card" content="summary_large_image" />
@@ -29,7 +31,9 @@ export const Seo: FC<SeoProps> = ({
       <meta property="twitter:url" content="https://mnik01.vercel.app/" />
       <meta name="twitter:title" content={title === defaultTitle ? defaultTitle : title} />
       <meta name="twitter:description" content={locale === 'ru' ? 'Личный блок: статьи и мнения про айти, дизайн и прочее...' : "Personal blog & portfolio. Front-end, design and other..."} />
-      {coverImgPath || <meta name="twitter:image" content={title === defaultTitle ? `https://mnik01.vercel.app/api/og` : `https://mnik01.vercel.app/api/og?title=${title}`} />
+      {coverImgPath
+        ? <meta name="twitter:image" content={coverImgPath} />
+        : <meta name="twitter:image" content={title === defaultTitle ? `https://mnik01.vercel.app/api/og` : `https://mnik01.vercel.app/api/og?title=${title}`} />
       }
     </Head>
   )

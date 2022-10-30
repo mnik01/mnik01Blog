@@ -1,3 +1,5 @@
 export { getNotionPages } from './getNotionPages'
+export { appendixParser } from './appendixParser'
+export { clearFromAppendix, clearFromAppendixInString } from './clearFromAppendix'
 export { getNotionPageById } from './getNotionPageById'
 export { checkHasCoverImage } from './checkHasCoverImage'

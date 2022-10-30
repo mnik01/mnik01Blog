@@ -21,7 +21,7 @@
 }
 
 .bordered {
-  border: 1px solid rgba(143, 142, 138, 0.3);
+  outline: 1px solid rgba(143, 142, 138, 0.3);
 }
 
 .breadcrumb.active>.title {
