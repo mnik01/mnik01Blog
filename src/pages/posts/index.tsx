@@ -46,7 +46,7 @@ const Posts: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({ pages
       <Seo title="Посты" />
       <Header />
       <main className='containered pt-[45px]'>
-        <h1 className='text-4xl font-bold mt-16 mb-4'>Публикации</h1>
+        <h1 className='text-4xl font-bold mt-4 sm:mt-16 mb-4'>Публикации</h1>
         <Twemoji
         options={{
           className: "twemoji",
