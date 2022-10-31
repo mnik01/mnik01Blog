@@ -57,7 +57,7 @@ export const PostCard: FC<{ page: PageInternal; isBlue: boolean } > = ({ page, i
             </div>}
             <h1 className="text-[15px] font-black">{page.title}</h1>
           </div>
-          {page.previewText && <p className={`pt-2 tracking-wide text-sm ${postImage ? 'line-clamp-6' : ''}`}>{page.previewText}...</p>}
+          {page.previewText && <p className={`pt-2 tracking-wide text-sm ${postImage ? 'line-clamp-4 sm:line-clamp-6' : ''}`}>{page.previewText}...</p>}
         </main>
         <footer className="flex items-center justify-between">
           <p className="text-xs text-stone-700 ">{daysPast}</p>
