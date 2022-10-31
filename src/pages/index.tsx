@@ -29,24 +29,31 @@ const Home: NextPage = () => {
         </section>
         <section>
           <h2 className='text-3xl mb-2 mt-8 text-h2 dark:text-light font-bold'>Об этом сайте</h2>
-          <p>todo</p>
-        </section>
-        <section>
-          <h2 className='text-3xl mb-2 mt-8 text-h2 dark:text-light font-bold'>Опыт работы</h2>
-          <p>todo</p>
+          <p>Блог написан на Next.js + Typescript и использует Notion в качестве CMS. Используется SSG и ISR. Благодаря этому в lighthouse сайт набирает примерно 100 баллов в каждой из метрик</p>
         </section>
         <section id="cv">
-          <h2 className='text-3xl mb-2 mt-8 text-h2 dark:text-light font-bold'>Резюме</h2>
-          <p>todo</p>
+          <h2 className='text-3xl mb-2 mt-8 text-h2 dark:text-light font-bold'>Резюме и опыт работы</h2>
+          <Link className='text-indigo-500 underline' href="/cv">
+          Резюме можно посмотреть тут
+          </Link>
         </section>
         <section>
           <h2 className='text-3xl mb-4 mt-8 text-h2 dark:text-light font-bold'>Публикации</h2>
-          <div className='w-full flex gap-2'>
+          <div className='w-full flex-col flex gap-2'>
+            <article className='shadow-md rounded-[10px] transition-colors p-4 bg-[#68c7ed] hover:bg-[#79cdef] w-full h-fit'>
+              <Link className='flex justify-between flex-col w-full h-full' href="/posts/57d54c52-3ce1-4d92-9401-759e283d7572">
+                <div>
+                  <p className='text-white text-xs font-bold'>Гайд</p>
+                  <h1 className='text-[#2F3437] mt-1 text-xl font-bold'>Как в телеграме отправить фото без сжатия?</h1>
+                </div>
+                <p className='text-xs text-stone-100 pt-6'>2 дня назад</p>
+              </Link>
+            </article>
             <article className='shadow-md rounded-[10px] transition-colors p-4 bg-[#68c7ed] hover:bg-[#79cdef] w-full h-fit'>
               <Link className='flex justify-between flex-col w-full h-full' href="/posts/57d54c52-3ce1-4d92-9401-759e283d7572">
                 <div>
                   <p className='text-white text-xs font-bold'>Статья</p>
-                  <h1 className='text-[#2F3437] mt-1 text-xl font-bold'>Как добавить Typescript в React приложение</h1>
+                  <h1 className='text-[#2F3437] mt-1 text-xl font-bold'>Как добавить Typescript в React приложение?</h1>
                 </div>
                 <p className='text-xs text-stone-100 pt-6'>4 дня назад</p>
               </Link>
