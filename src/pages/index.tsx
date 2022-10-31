@@ -30,6 +30,8 @@ const Home: NextPage = () => {
         <section>
           <h2 className='text-3xl mb-2 mt-8 text-h2 dark:text-light font-bold'>Об этом сайте</h2>
           <p>Блог написан на Next.js + Typescript и использует Notion в качестве CMS. Используется SSG и ISR. Благодаря этому в lighthouse сайт набирает примерно 100 баллов в каждой из метрик</p>
+          <br />
+          <p>Так же я сам сделал дизайн сайта и 3D модели для его оформления</p>
         </section>
         <section id="cv">
           <h2 className='text-3xl mb-2 mt-8 text-h2 dark:text-light font-bold'>Резюме и опыт работы</h2>
