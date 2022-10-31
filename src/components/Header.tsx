@@ -4,7 +4,7 @@ import Link from "next/link"
 import { useRouter } from "next/router"
 import { ThemeSwitcher } from "./ThemeSwitcher"
 
-export const Header: FC = () => {
+export const Header: FC<{ extendClasses?: string }> = ({ extendClasses }) => {
   const router = useRouter()
   const isHomePage = router.pathname === '/'
   const [shouldExpandMenu, setShouldExpandMenu] = useState(false)
@@ -18,7 +18,7 @@ export const Header: FC = () => {
   }
 
   return (
-    <header className={`${shouldExpandMenu ? 'shadow-xl dark:drop-shadow-2xl dark:shadow-2xl' : ''} text-p w-full fixed top-0 bg-white dark:bg-dark dark:text-light text-sm font-inter`}>
+    <header className={`${extendClasses} ${shouldExpandMenu ? 'shadow-xl dark:drop-shadow-2xl dark:shadow-2xl' : ''} text-p w-full fixed top-0 bg-white dark:bg-dark dark:text-light text-sm font-inter`}>
       <div className="flex items-center justify-between px-3 h-[45px]">
         <Link href="/">
           <div className="flex cursor-pointer hover:scale-105 transition-transform gap-1.5">

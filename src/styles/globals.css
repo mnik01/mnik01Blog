@@ -29,3 +29,7 @@
   text-overflow: ellipsis;
   overflow: hidden;
 }
+
+.notion-header {
+  display: none;
+}
