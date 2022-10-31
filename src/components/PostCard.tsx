@@ -4,42 +4,13 @@ import Image from 'next/image'
 import { formatDistance, subDays } from 'date-fns'
 import { ru } from 'date-fns/locale'
 
-export const PostCard: FC<{ page: PageInternal; isBlue: boolean } > = ({ page, isBlue }) => {
+export const PostCard: FC<{ page: PageInternal } > = ({ page }) => {
   const postImage = page.appendix?.postImage ? `/images/${page.appendix.prefix}/${page.appendix.postImage}` : null
   const daysPast = formatDistance(subDays(new Date(page.createdAt), 3), new Date(), { locale: ru, addSuffix: true })
 
   return (
   <Link href={`/posts/${page.id}`}>
-    {isBlue
-      ? (
-        <article className='flex bg-[#94d9f5] sm:flex-col flex-row-reverse justify-between bordered shadow-md hover:shadow-lg transition rounded-[10px] overflow-hidden w-full h-48 sm:w-[224px] sm:h-96'>
-      {postImage
-        && <div className="relative w-28 shrink-0 sm:w-full min-h-96 sm:min-h-[167px]">
-          <Image
-            fill
-            className="object-cover"
-            alt={`preview image ${page.title}`}
-            src={postImage}
-          />
-        </div>}
-      <div className='flex justify-between h-full flex-col p-4'>
-        <main className="h-full">
-          <div className="flex gap-2 items-start">
-            {page.emoji && <div className="w-6 h-6 shrink-0">
-              {page.emoji}
-            </div>}
-            <h1 className="text-[15px] font-black">{page.title}</h1>
-          </div>
-          {page.previewText && <p className="pt-2 line-clamp-4 sm:line-clamp-[12] tracking-wide text-sm">{page.previewText}</p>}
-        </main>
-        <footer className="flex items-center justify-between">
-          <p className="text-xs">{daysPast}</p>
-          <p className='text-xs text-white rounded-[3px] font-semibold py-1 px-1.5 h-fit'>Статья</p>
-        </footer>
-      </div>
-    </article>
-        )
-      : <article className='flex sm:flex-col flex-row-reverse justify-between bordered shadow-md hover:shadow-lg transition rounded-[10px] overflow-hidden w-full h-48 sm:w-[224px] sm:h-96'>
+    <article className='flex sm:flex-col flex-row-reverse justify-between bordered shadow-md hover:shadow-lg transition rounded-[10px] overflow-hidden w-full h-48 sm:w-[224px] sm:h-96'>
       {postImage
         && <div className="relative w-28 shrink-0 sm:w-full min-h-96 sm:min-h-[167px]">
           <Image
@@ -57,7 +28,7 @@ export const PostCard: FC<{ page: PageInternal; isBlue: boolean } > = ({ page, i
             </div>}
             <h1 className="text-[15px] font-black">{page.title}</h1>
           </div>
-          {page.previewText && <p className={`pt-2 tracking-wide text-sm ${postImage ? 'line-clamp-4 sm:line-clamp-6' : ''}`}>{page.previewText}...</p>}
+          {page.previewText && <p className={`pt-2 tracking-wide text-sm ${postImage ? 'line-clamp-4 sm:line-clamp-6' : 'line-clamp-5 sm:line-clamp-[12]'}`}>{page.previewText}...</p>}
         </main>
         <footer className="flex items-center justify-between">
           <p className="text-xs dark:text-white/80 text-stone-700 ">{daysPast}</p>
@@ -65,7 +36,6 @@ export const PostCard: FC<{ page: PageInternal; isBlue: boolean } > = ({ page, i
         </footer>
       </div>
     </article>
-      }
   </Link>
   )
 }

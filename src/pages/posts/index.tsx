@@ -37,7 +37,7 @@ export const getStaticProps = async () => {
     }
   })
 
-  return { props: { pages: pagesAdapted } }
+  return { props: { pages: pagesAdapted }, revalidate: 10 }
 }
 
 const Posts: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({ pages }) => {
@@ -61,9 +61,9 @@ const Posts: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({ pages
           },
         }}
       >
-        <ul className='flex gap-2 flex-col sm:flex-row'>
+        <ul className='flex pb-8 gap-2 flex-col sm:flex-row flex-wrap'>
           {pages.map((page, idx) => (<li key={page.id}>
-            <PostCard isBlue={(idx + 1) % 3 === 0} page={page} />
+            <PostCard page={page} />
           </li>))}
         </ul>
       </Twemoji>

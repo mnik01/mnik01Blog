@@ -9,7 +9,6 @@ import Twemoji from 'react-twemoji'
 import { appendixParser, checkHasCoverImage, clearFromAppendix, getNotionPageById, getNotionPages } from '../../utils'
 import { Seo } from '../../components/Seo'
 import { Footer } from '../../components/Footer'
-import { ThemeSwitcher } from '../../components/ThemeSwitcher'
 import { Header } from '../../components/Header'
 
 export const getStaticPaths = async () => {
@@ -90,7 +89,7 @@ const Post: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({ notion
           }
           defaultPageIcon={'💙'}
           previewImages
-          header={<Header extendClasses="fixed top-0 left-0 z-[200] w-full" />}
+          header={<Header extendClasses="fixed top-0 left-0 w-full" />}
           footer={<Footer />}
           components={{
             nextImage: Image,
