@@ -14,6 +14,19 @@ function defineNextConfig(config) {
 }
 
 export default defineNextConfig({
+  webpack: (config, { dev, isServer }) => {
+    // Note, preact is only enabled for production builds (`next build`)
+    if (!dev && !isServer) {
+      config.resolve.alias = {
+        ...config.resolve.alias,
+        "react/jsx-runtime.js": "preact/compat/jsx-runtime",
+        "react": "preact/compat",
+        "react-dom": "preact/compat",
+      }
+    }
+
+    return config
+  },
   reactStrictMode: true,
   swcMinify: true,
   // Next.js i18n docs: https://nextjs.org/docs/advanced-features/i18n-routing

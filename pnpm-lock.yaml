@@ -23,6 +23,7 @@ specifiers:
   notion-types: ^6.15.6
   notion-utils: ^6.15.6
   postcss: ^8.4.14
+  preact: ^10.11.2
   prettier: ^2.7.1
   prettier-plugin-tailwindcss: ^0.1.13
   react: 18.2.0
@@ -36,6 +37,7 @@ specifiers:
 dependencies:
   next: 13.0.0_biqbaboplfbrettd7655fr4n2y
   next-themes: 0.2.1_r5sq4deac3rmm2d5onhwvomqve
+  preact: 10.11.2
   react: 18.2.0
   react-dom: 18.2.0_react@18.2.0
   react-notion-x: 6.15.6_y46qkat3hdx7k7haay7kqv5bvi
@@ -3307,6 +3309,10 @@ packages:
       picocolors: 1.0.0
       source-map-js: 1.0.2
     dev: true
+
+  /preact/10.11.2:
+    resolution: {integrity: sha512-skAwGDFmgxhq1DCBHke/9e12ewkhc7WYwjuhHB8HHS8zkdtITXLRmUMTeol2ldxvLwYtwbFeifZ9uDDWuyL4Iw==}
+    dev: false
 
   /prelude-ls/1.2.1:
     resolution: {integrity: sha512-vkcDPrRZo1QZLbn5RLGPpg/WmIQ65qoWWhcGKf/b5eplkkarX0m9z8ppCat4mlOqUsWpyNuYgO3VRyrYHSzX5g==}
